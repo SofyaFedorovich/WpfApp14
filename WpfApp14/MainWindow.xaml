@@ -6,7 +6,39 @@
         xmlns:local="clr-namespace:WpfApp14"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <Window.Resources>
+        <DataTemplate x:Key="templateProducts">
+            <Border x:Name="border" BorderBrush="Green" BorderThickness="5" Margin="5" Padding="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Width="64" Height="64" Source="{Binding Path=ImageProduct}"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="Название товара:" />
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="{Binding Path=NameProduct}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="Стоимость:"/>
+                    <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Path=PriceProduct}"/>
+                </Grid>
+            </Border>
+            <DataTemplate.Triggers>
+                <DataTrigger Binding = "{Binding Path=CategoryProduct}">
+                    <DataTrigger.Value>
+                        <local:Categories>Food</local:Categories>
+                    </DataTrigger.Value>
+                    <Setter TargetName="border" Property="BorderBrush" Value="LightGray"/>
+                    <Setter TargetName="border" Property="Background" Value="Blue"/>
+                </DataTrigger>Orange
+            </DataTemplate.Triggers>
+        </DataTemplate>
+    </Window.Resources>
+    <StackPanel>
+        <TextBlock Text="Список товаров:" FontSize="26" TextDecorations="Underline" HorizontalAlignment="Center"/>
+        <ListBox Name="listBox" Width="500" Margin="5" ItemTemplate="{StaticResource templateProducts}" HorizontalContentAlignment="Stretch"/>
+    </StackPanel>
 </Window>
