@@ -21,8 +21,7 @@ namespace WpfApp14
     /// </summary>
     public partial class MainWindow : Window
     {
-        public partial class MainWindow : Window
-        {
+        
 
             public ObservableCollection<Product> products;
 
@@ -39,6 +38,6 @@ namespace WpfApp14
 
                 listBox.ItemsSource = products;
             }
-        }
+        
     }
 }

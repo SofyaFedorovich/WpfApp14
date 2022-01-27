@@ -33,7 +33,7 @@
                     </DataTrigger.Value>
                     <Setter TargetName="border" Property="BorderBrush" Value="LightGray"/>
                     <Setter TargetName="border" Property="Background" Value="Blue"/>
-                </DataTrigger>Orange
+                </DataTrigger>
             </DataTemplate.Triggers>
         </DataTemplate>
     </Window.Resources>
